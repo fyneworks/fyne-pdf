@@ -130,7 +130,7 @@ module.exports = (env, argv) => {
     },
     output: {
       // https://stackoverflow.com/a/40906811/12237147
-      publicPath: './',
+      //publicPath: './',
       path: path.resolve(__dirname, './build'),
       filename: 'inline.js'
     },
@@ -144,7 +144,7 @@ module.exports = (env, argv) => {
     },
     output: {
       // https://stackoverflow.com/a/40906811/12237147
-      publicPath: './',
+      //publicPath: './',
       path: path.resolve(__dirname, './build'),
       filename: 'dialog.js'
     },
@@ -158,7 +158,7 @@ module.exports = (env, argv) => {
     },
     output: {
       // https://stackoverflow.com/a/40906811/12237147
-      publicPath: './',
+      //publicPath: './',
       path: path.resolve(__dirname, './build'),
       filename: 'fyne.js'
     },
@@ -209,7 +209,7 @@ module.exports = (env, argv) => {
     },
     output: {
       // https://stackoverflow.com/a/40906811/12237147
-      publicPath: './',
+      //publicPath: './',
       path: path.resolve(__dirname, './build'),
       filename: 'direct.js'
     },
@@ -225,7 +225,7 @@ module.exports = (env, argv) => {
     },
     output: {
       // https://stackoverflow.com/a/40906811/12237147
-      publicPath: './',
+      //publicPath: './',
       path: path.resolve(__dirname, './build'),
       filename: 'plain.js'
     },
