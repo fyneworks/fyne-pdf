@@ -1,6 +1,6 @@
 {
   "name": "@fyne/pdf",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "description": "",
   "main": "build/fyne.js",
   "publishConfig": {
