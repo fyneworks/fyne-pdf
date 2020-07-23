@@ -13,7 +13,7 @@ module.exports = (env, argv) => {
   const dotenvFile = './.env' + (isDevelopmentMode?'.local':'');
   const dotenv = Dotenv.config({ path:dotenvFile }).parsed;
   const ENV = Object.assign({}, dotenv, { NODE_ENV });
-  //console.log('webpack env', {isDevelopmentMode, dotenvFile, dotenv, ENV });
+  console.log('webpack env', {isDevelopmentMode, dotenvFile, dotenv, ENV });
 
   // Locally, we want robust source-maps. However, in production, we want something
 	// that can help with debugging without giving away all of the source-code. This
@@ -155,7 +155,7 @@ module.exports = (env, argv) => {
       main: './src/fyne/index.js'
     },
     output: {
-      publicPath: './',
+      //publicPath: './',
       path: path.resolve(__dirname, './build'),
       filename: 'fyne.js'
     },

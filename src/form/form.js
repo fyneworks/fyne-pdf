@@ -8,6 +8,8 @@ export const Form = () => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
+  console.log("Form arguments", arguments);
+
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
   }
