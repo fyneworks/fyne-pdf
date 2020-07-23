@@ -1,0 +1,10 @@
+node_modules
+
+# ignore build folder
+build
+
+# Local dev variables
+.env.local
+
+# Local Netlify folder
+.netlify
