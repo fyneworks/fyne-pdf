@@ -12,12 +12,12 @@ export const InlineWrap = ({element, ...props}) => {
   // }
 // 
   // const send = () => {
-    // //console.log('InlineWrap.send', {data, errors});
+    // console.log('InlineWrap.send', {data, errors});
     // _submit(data);
     // done(data);
   // }
 
-  //console.log("InlineWrap",{props})
+  console.log("InlineWrap",{props})
 
   return (
     <React.Fragment>

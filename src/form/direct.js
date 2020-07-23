@@ -10,6 +10,6 @@ const inline_eid = window.FYNE_INLINE_ID || AppID('inline');
 const inline_ele = document.getElementById(inline_eid);
 
 if(inline_ele){
-    //console.log('Render immediately', { inline_eid, inline_ele });
+    console.log('Render immediately', { inline_eid, inline_ele });
     render({FyneApp, element:inline_ele})
 }

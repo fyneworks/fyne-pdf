@@ -9,9 +9,9 @@ import { AppID } from './../fyne/globals'
 const inline_eid = window.FYNE_INLINE_ID || AppID('inline');
 const inline_ele = document.getElementById(inline_eid);
 
-//console.log('Render plain FyneApp?', { inline_eid, inline_ele });
+console.log('Render plain FyneApp?', { inline_eid, inline_ele });
 
 if(inline_ele){
-    //console.log('Render plain FyneApp immediately!', { inline_eid, inline_ele });
+    console.log('Render plain FyneApp immediately!', { inline_eid, inline_ele });
     ReactDOM.render(<FyneApp/>, inline_ele)
 }

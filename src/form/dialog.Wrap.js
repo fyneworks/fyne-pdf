@@ -30,30 +30,30 @@ export const DialogWrap = ({startOpen = true, container, ...props}) => {
 
   const FyneForm = Form;//const { FyneForm, state, submit, setState } = useFyneForm('dialog', { Form,
   //  submit: (props)=> {
-  //    //console.log('Dialog useFyneForm submit', {state,props}); //{state, valid, args:{values, isValid, errors, setErrors}});
+  //    console.log('Dialog useFyneForm submit', {state,props}); //{state, valid, args:{values, isValid, errors, setErrors}});
   //    handleSubmit(state); //{values, isValid, errors})
   //    
   //  }, 
   //  cancel: (props)=> {
-  //    //console.log('Dialog useFyneForm cancel', {state,props}); //{state, valid, args:{values, isValid, errors}});
+  //    console.log('Dialog useFyneForm cancel', {state,props}); //{state, valid, args:{values, isValid, errors}});
   //    handleCancel(state); //{values, isValid, errors})
   //    
   //  }
   //});
   
   const clickClose = ()=> {
-    //console.log('clickClose');
+    console.log('clickClose');
     closeDialog();
   };
   
   useEffect(()=>{
-    //console.log('REVIVE? install', app_name+'__revive')
+    console.log('REVIVE? install', app_name+'__revive')
     window[app_name+'__revive'] = ()=> {
       setOpen(true)
     }
   }, []);
 
-  //console.log("DialogWrap");//, {valid,data,errors,isOpen,startOpen,container,fullScreen,theme})
+  console.log("DialogWrap");//, {valid,data,errors,isOpen,startOpen,container,fullScreen,theme})
 
   return (
       <Dialog open={isOpen} scroll={"paper"} disableScrollLock container={container} fullScreen={fullScreen} onClose={closeDialog} aria-labelledby="form-dialog-title">
