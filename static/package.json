@@ -1,0 +1,13 @@
+{
+  "name": "@fyne/pdf",
+  "version": "0.0.7",
+  "description": "",
+  "main": "fyne.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "author": ""
+}
