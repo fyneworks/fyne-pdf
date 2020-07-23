@@ -1,0 +1,14 @@
+# publishing the dist folder alone is hard
+#
+# see
+# https://stackoverflow.com/questions/38935176/how-to-npm-publish-specific-folder-but-as-package-root
+#
+# technique 1 https://stackoverflow.com/a/52177090/12237147
+# technique 2 https://stackoverflow.com/a/55822419/12237147
+# technique 3 https://stackoverflow.com/a/58930855/12237147
+
+# ignore everything
+*.*
+
+# except the build folder
+!/build/*
