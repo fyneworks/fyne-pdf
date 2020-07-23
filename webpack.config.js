@@ -129,6 +129,7 @@ module.exports = (env, argv) => {
       form: './src/form/inline.js'
     },
     output: {
+      publicPath: './',
       path: path.resolve(__dirname, './build'),
       filename: 'inline.js'
     },
@@ -141,6 +142,7 @@ module.exports = (env, argv) => {
       form: './src/form/dialog.js'
     },
     output: {
+      publicPath: './',
       path: path.resolve(__dirname, './build'),
       filename: 'dialog.js'
     },
@@ -153,6 +155,7 @@ module.exports = (env, argv) => {
       main: './src/fyne/index.js'
     },
     output: {
+      publicPath: './',
       path: path.resolve(__dirname, './build'),
       filename: 'fyne.js'
     },
@@ -202,6 +205,7 @@ module.exports = (env, argv) => {
       form: './src/form/direct.js'
     },
     output: {
+      publicPath: './',
       path: path.resolve(__dirname, './build'),
       filename: 'direct.js'
     },
@@ -216,6 +220,7 @@ module.exports = (env, argv) => {
       form: './src/form/plain.js'
     },
     output: {
+      publicPath: './',
       path: path.resolve(__dirname, './build'),
       filename: 'plain.js'
     },
