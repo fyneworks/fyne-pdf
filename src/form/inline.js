@@ -12,7 +12,7 @@ on(
 	'render:' + app_name,
 	({ onRender = () => {}, element, ...props } = {}) => {
 
-		//console.log("INLINE render", {element, props, onRender});
+		console.log("INLINE render", {element, props, onRender});
 		
 		render({...props, FyneApp, onRender, element});
 		
