@@ -22,7 +22,7 @@ export const InlineWrap = ({element, ...props}) => {
   return (
     <React.Fragment>
         
-      <Form/>
+      <Form {...props}/>
       {/* FyneForm will go here */}
       {/* <FyneForm/> */}
 

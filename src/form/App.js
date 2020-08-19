@@ -24,7 +24,6 @@ const theme = responsiveFontSizes(createMuiTheme({
 
 
 export const App = ({ 
-    data, 
     FyneApp, 
     onRender,
     element,
@@ -36,14 +35,14 @@ export const App = ({
         //insertionPoint: element
     });
 
-    //console.log("App", {data, FyneApp, onRender, element, jss, props,StylesProvider,ThemeProvider,SnackbarProvider,FyneApp,});
+    console.log("App really render()", {FyneApp, onRender, element, jss, props, StylesProvider,ThemeProvider,SnackbarProvider,FyneApp});
     
     return (
         <React.Fragment>
             <StylesProvider jss={jss}>
                 <ThemeProvider theme={theme}>
                     <SnackbarProvider preventDuplicate maxSnack={3}>
-                        <FyneApp {...{data, ...props}}/>
+                        <FyneApp {...props}/>
                     </SnackbarProvider>
                 </ThemeProvider>
             </StylesProvider>
@@ -58,25 +57,23 @@ export const destroy = ({ onDestroy = () => {}, element, ...props } = {}) => {
 	onDestroy()
 }
 
-export const render = ({ data = {}, FyneApp = React.Fragment, onRender = () => {}, trigger, element, ...props } = {}) => {
+export const render = ({ FyneApp = React.Fragment, onRender = () => {}, element, ...props } = {}) => {
 
+    const { data = {}, trigger, ...moprops } = props?.props?.data || {};
     const trgdata = trigger ? { ...trigger.dataset } : {};
     const eledata = element ? { ...element.dataset } : {};
-    const comdata = Object.assign({}, trgdata, eledata, data );
-    console.log("App render()", { trigger, trgdata, element, eledata, data, comdata, props });
+    const options = Object.assign({}, moprops, trgdata, eledata );
+    console.log("App render()", { trigger, /*td:trigger.dataset,*/ trgdata, element, /*ed:element.dataset,*/ eledata, data, options, moprops, props });
 
     ReactDOM.render(
         <App
-            {...(
-                { 
-                    //data, 
-                    FyneApp, 
-                    onRender,
-                    element,
-                    data: comdata,
-                    ...props
-                }
-            )}
+            FyneApp={FyneApp}
+            onRender={onRender}
+            element={element}
+            trigger={trigger}
+            options={options}
+            data={data}
+            {...props}
         >
             Hello world
         </App>

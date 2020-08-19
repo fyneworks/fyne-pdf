@@ -57,10 +57,10 @@ export const DialogWrap = ({startOpen = true, container, ...props}) => {
 
   return (
       <Dialog open={isOpen} scroll={"paper"} disableScrollLock container={container} fullScreen={fullScreen} onClose={closeDialog} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">{process.env.REACT_APP_TITLE}</DialogTitle>
+        {/* <DialogTitle id="form-dialog-title">{process.env.REACT_APP_TITLE}</DialogTitle> */}
         <DialogContent>
           
-          <FyneForm/>
+          <FyneForm {...props}/>
 
         </DialogContent>
         <DialogActions>

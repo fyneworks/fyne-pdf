@@ -1,8 +1,8 @@
 import { dialog, inline } from './hub';
 
-export const show = ({ data = {}, trigger, element, ...props }) => { 
-    console.log('FYNEFORM > fyne show', {data, trigger, element, props });
-    dialog.render({ data, trigger, element, ...props });
+export const show = props => { //({ data = {}, trigger, element, ...props }) => { 
+    console.log('FYNEFORM > fyne show', props);// {data, trigger, element, props });
+    dialog.render(props); //dialog.render({ data, trigger, element, props:{ original_props:props, testing:123 } });
     // render lazy method
     // or open iframe?
 }
