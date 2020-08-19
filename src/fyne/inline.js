@@ -12,10 +12,10 @@ let isBound = false;
 
 export const config = fyneApp({app_id,ele_id,script});
 
-export const render = ({ele,data,loader=true,...props}) => {
-    //console.log("INLINE render", {ele,data,props});
+export const render = ({element,data,loader=true,...props}) => {
+    //console.log("INLINE render", {element,data,props});
     
-    const div = ele || document.getElementById(ele_id);
+    const div = element || document.getElementById(ele_id);
     if(!div){
         return console.warn("Can't reneder inline, root element not found", {app_id, ele_id});
     }

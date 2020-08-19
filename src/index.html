@@ -28,6 +28,7 @@
   <!-- End Google Tag Manager -->
 
   <base href="/">
+  <link rel="stylesheet" type="text/css" href="/node_modules/@phuocng/react-pdf-viewer/cjs/react-pdf-viewer.css"/>
 </head>
 <body>
 
@@ -47,7 +48,7 @@
       <a href="./fyne.js">fyne.js</a> will listen for triggers (eg.: click/mutation) <em>then</em> load and launch the app on demand.
     </p>
     <p>
-      Example 1, in <a href="./dialog.html">a dialog</a>, triggered by <a href="#" rel="<%= process.env.REACT_APP_FWX_FORM %>-dialog">a click</a>
+      Example 1, in <a href="./dialog.html">a dialog</a>, triggered by <a href="#" data-pdf="<%= process.env.REACT_APP_PDF_SAMPLE %>" rel="<%= process.env.REACT_APP_FWX_FORM %>-dialog">a click</a>
     </p>
     <p>
       Example 2, in <a href="./inline.html">a html element</a>, triggered onload

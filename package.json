@@ -29,7 +29,10 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "@phuocng/react-pdf-viewer": "^1.7.0",
+    "pdfjs-dist": "^2.4.456"
+  },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",

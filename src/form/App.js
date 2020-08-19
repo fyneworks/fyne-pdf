@@ -5,7 +5,7 @@ import { createMuiTheme, ThemeProvider, responsiveFontSizes } from '@material-ui
 import { StylesProvider, jssPreset } from '@material-ui/styles';
 import { create } from 'jss';
 
-import './index.scss'
+import './index.scss';
 
 import { SnackbarProvider } from '@fyne/ui/notify'; //https://material-ui.com/components/snackbars/
 //console.log('SnackbarProvider', {SnackbarProvider});
@@ -58,9 +58,12 @@ export const destroy = ({ onDestroy = () => {}, element, ...props } = {}) => {
 	onDestroy()
 }
 
-export const render = ({ data, FyneApp = React.Fragment, onRender = () => {}, element, ...props } = {}) => {
+export const render = ({ data = {}, FyneApp = React.Fragment, onRender = () => {}, trigger, element, ...props } = {}) => {
 
-    //console.log("render()", {data, props});
+    const trgdata = trigger ? { ...trigger.dataset } : {};
+    const eledata = element ? { ...element.dataset } : {};
+    const comdata = Object.assign({}, trgdata, eledata, data );
+    console.log("App render()", { trigger, trgdata, element, eledata, data, comdata, props });
 
     ReactDOM.render(
         <App
@@ -70,6 +73,7 @@ export const render = ({ data, FyneApp = React.Fragment, onRender = () => {}, el
                     FyneApp, 
                     onRender,
                     element,
+                    data: comdata,
                     ...props
                 }
             )}

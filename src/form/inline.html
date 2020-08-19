@@ -28,6 +28,7 @@
   <!-- End Google Tag Manager -->
 
   <base href="/">
+  <link rel="stylesheet" type="text/css" href="/node_modules/@phuocng/react-pdf-viewer/cjs/react-pdf-viewer.css"/>
 </head>
 <body>
 
@@ -44,7 +45,10 @@
       The app will render in <code>&lt;div class="<%= process.env.REACT_APP_FWX_FORM %>-inline"&gt;</code>
     </p>
     <div style="border: #009 solid 0px; min-height:100px; width:100%; margin:20px; display:block; box-sizing:border-box;">
-        <div class="<%= process.env.REACT_APP_FWX_FORM %>-inline"></div>
+        <div 
+          class="<%= process.env.REACT_APP_FWX_FORM %>-inline"
+          data-pdf="<%= process.env.REACT_APP_PDF_SAMPLE %>"
+        ></div>
     </div>
 
     <p>
@@ -63,6 +67,7 @@
       function addElement() {
           const newElement = document.createElement('div');
           newElement.classList.add("<%= process.env.REACT_APP_FWX_FORM %>-inline");
+          newElement.dataset.pdf = "<%= process.env.REACT_APP_PDF_SAMPLE %>";
           newElement.style.height = "200px"
             newElement.style.width = "30%"
             newElement.style.display = "inline-block"

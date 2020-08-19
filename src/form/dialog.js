@@ -10,18 +10,18 @@ export const app_name = AppID('dialog');
 
 on(
 	'render:' + app_name,
-	({ onRender = () => {}, element, ...props } = {}) => {
+	({ onRender = () => {}, trigger, element, ...props } = {}) => {
 
-		console.log("DIALOG render", {element, props, onRender});
+		console.log("DIALOG render", { trigger, element, props, onRender });
 		
-		render({...props, FyneApp, onRender, element});
+		render({ ...props, FyneApp, onRender, trigger, element });
 		
 	}
 )
 
-on('destroy:' + app_name, ({ onDestroy = () => {}, element } = {}) => {
+on('destroy:' + app_name, ({ onDestroy = () => {}, trigger, element } = {}) => {
 	
-	destroy({onDestroy, element});
+	destroy({ onDestroy, trigger, element });
 })
 
 

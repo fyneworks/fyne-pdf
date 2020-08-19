@@ -1,14 +1,13 @@
 import { dialog, inline } from './hub';
 
-export const show = ({...props}) => { 
-    const { data, ele } = props;
-    console.log('FYNEFORM > fyne show', {data,ele,props});
-    dialog.render(props);
+export const show = ({ data = {}, trigger, element, ...props }) => { 
+    console.log('FYNEFORM > fyne show', {data, trigger, element, props });
+    dialog.render({ data, trigger, element, ...props });
     // render lazy method
     // or open iframe?
 }
 export const hide = (...args) => { 
-    console.log('FYNEFORM > fyne hide', args)
+    //console.log('FYNEFORM > fyne hide', args)
 }
 
 
@@ -28,7 +27,7 @@ export const start = ({action, custom_data = {}, ...props})=>{
         window.ga && window.ga('send', 'event', 'pdf', 'start', 'straight-to-form');//, [eventLabel], [eventValue], [fieldsObject]);
 
         // SHOW pdf FOR WITH INITIAL DATA
-        console.log('FYNEFORM > Fyne hub show WITH INITIAL DATA', {data,custom_data});
+        //console.log('FYNEFORM > Fyne hub show WITH INITIAL DATA', {data,custom_data});
         show({data});
 
     }
@@ -39,40 +38,40 @@ export const start = ({action, custom_data = {}, ...props})=>{
         window.ga && window.ga('send', 'event', 'pdf', 'start', 'show-prompt');//, [eventLabel], [eventValue], [fieldsObject]);
 
         // SHOW pdf FORM BLANK
-        console.log('FYNEFORM > Fyne hub show BLANK', {data,custom_data});
+        //console.log('FYNEFORM > Fyne hub show BLANK', {data,custom_data});
         show();
 
     }
 
 };
 
-export const renderInto = (ele) => {
-	console.log('FYNEFORM > render into',{ele});
-	render({ele});
+export const renderInto = ( element ) => {
+	//console.log('FYNEFORM > render into',{element});
+	render({ element });
 }
 
-export const render = ({ele,data,...props}) => {
-	console.log('FYNEFORM > render inline',{ele,data,props});
-	inline.render({...props,ele,data});//ReactDOM.render(<App url={ele.dataset.pdf} />, ele);
+export const render = ({ trigger, element, data, ...props }) => {
+	console.log('FYNEFORM > render inline',{ trigger, element, data, props });
+	inline.render({ ...props, trigger, element, data });//ReactDOM.render(<App url={element.dataset.pdf} />, element);
 }
 
 let clickedatall = false;
 let initialised = false;
 let clicked = false;
 export const listen = () => {
-    console.log('FYNEFORM > pdf listen');
+    //console.log('FYNEFORM > pdf listen');
 
     // bind event handlers
     if(!!initialised){
-        console.log('FYNEFORM > already initialised, do not bind event handler again');
+        //console.log('FYNEFORM > already initialised, do not bind event handler again');
     }
     else{
-        console.log('FYNEFORM > pdf install click handler', dialog.className);
+        //console.log('FYNEFORM > pdf install click handler', dialog.className);
         
         initialised = true;
-        console.log('FYNEFORM > initializing, bind event handler for the first time');
+        //console.log('FYNEFORM > initializing, bind event handler for the first time');
         document.addEventListener("click", function(e) {
-            console.log('FYNEFORM > pdf click', dialog.className, e);
+            //console.log('FYNEFORM > pdf click', dialog.className, e);
             
             // reset click once trap
             clicked = false;
@@ -81,7 +80,7 @@ export const listen = () => {
             for (var target=e.target; target && target!==this; target=target.parentNode) {
                 // loop parent nodes from the target to the delegation node
 
-                console.log('FYNEFORM > pdf click open dialog?', dialog.className, target);
+                //console.log('FYNEFORM > pdf click open dialog?', dialog.className, target);
                 
                 if (target.matches('[rel="'+dialog.className+'"]') || target.matches('.open-'+dialog.className+'')) {
                     
@@ -89,14 +88,15 @@ export const listen = () => {
                     e.preventDefault();
                         
                     if(!!clicked){
-                        console.log('FYNEFORM > already clicked');
+                        //console.log('FYNEFORM > already clicked');
                     }
                     else{
                         clickedatall = true;
                         clicked = true;
 
-                        console.log('FYNEFORM > show();',{ele:target});
-                        show({ele:target});
+                        //console.log('FYNEFORM > show();',{element:target});
+                        //show({element:target});
+                        show({trigger:target});
     
                     }
                     // stop for-looping
@@ -111,8 +111,8 @@ export const listen = () => {
         var e = event || window.event; // for IE to cover IEs window event-object
         if(e && e.altKey && e.which === 66) { // ALT+B
             
-                    console.log('FYNEFORM > show();',{ele:e.target});
-                    show({ele:e.target});
+                    //console.log('FYNEFORM > show();',{element:e.target});
+                    show({element:e.target});
     
             return false;
         }
@@ -124,7 +124,7 @@ export const listen = () => {
 // on mutation
 export const watch = ()=> {
 	const observer = new MutationObserver( mutations => {
-        console.log('FYNEFORM > mutations',{mutations});
+        //console.log('FYNEFORM > mutations',{mutations});
         const cls = inline.className;
 		const found = [];
 		for (const { addedNodes } of mutations) {
@@ -146,10 +146,10 @@ export const watch = ()=> {
 // bind directly to elements found by class
 export const bind = ()=> {
     const cls = inline.className;
-    const ele = document.getElementsByClassName(inline.className);
-    console.log('FYNEFORM > bind', {cls,ele});
+    const element = document.getElementsByClassName(inline.className);
+    //console.log('FYNEFORM > bind', {cls,element});
     // bind all matching elements by class
-    [].forEach.call(ele, renderInto);
+    [].forEach.call(element, renderInto);
 };
 
 // on boot
