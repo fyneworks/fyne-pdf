@@ -5,7 +5,7 @@ import React from 'react';
 // https://react-pdf-viewer.dev/
 // https://github.com/ansu5555/pdf-viewer-reactjs/
 //  
-// npm install pdfjs-dist@2.4.456
+// npm install pdfjs-dist@2.5.207
 // npm install @phuocng/react-pdf-viewer@1.7.0
 //  
 import Viewer, { Worker } from '@phuocng/react-pdf-viewer';
@@ -72,7 +72,7 @@ const layout = (
 
 export const FormReactPDFViewerPro = ({ pdf }) => {
   return (
-    <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.4.456/pdf.worker.min.js">
+    <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.5.207/pdf.worker.min.js">
       <Viewer
         fileUrl={pdf} 
         layout={layout}
